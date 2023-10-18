@@ -1,4 +1,5 @@
-FROM debian:jessie
+#FROM debian:jessie
+FROM debian:buster
 
 ARG steam_user=anonymous
 ARG steam_password=
