@@ -1,53 +1,54 @@
-# Imagem do Docker para servidor dedicado Counter Strike 1.6
+# Imagen de Docker para servidor dedicado de Counter-Strike 1.6
 
-## Iniciar o servidor
+## Iniciar el servidor
 
-### Configuração de propriedades mínimas
+### Configuración mínima
 
 ```bash
-docker run -d -p 26900:26900/udp -p 27020:27020/udp -p 27015:27015/udp -p 27015:27015 -e ADMIN_STEAM=0:1:1234566 --name cs cs16ds/server:latest
+docker run -d -p 26900:26900/udp -p 27020:27020/udp -p 27015:27015/udp -p 27015:27015 -e ADMIN_STEAM=0:1:1234566 --name cs jpacora/cs1.6:latest
 ```
 
-### Configuração de todas as propriedades
+### Configuración completa
+
 ```bash
-docker run -d -p 26900:26900/udp -p 27020:27020/udp -p 27015:27015/udp -p 27015:27015 -e MAXPLAYERS=32 -e START_MAP=de_dust2 -e SERVER_NAME="Nome do meu servidor" - e START_MONEY=16000 -e BUY_TIME=0.25 -e FRIENDLY_FIRE=1 -e ADMIN_STEAM=0:1:1234566 --name cs cs16ds/server:latest +log
+docker run -d -p 26900:26900/udp -p 27020:27020/udp -p 27015:27015/udp -p 27015:27015 -e MAXPLAYERS=32 -e START_MAP=de_dust2 -e SERVER_NAME="Nombre de mi servidor" -e START_MONEY=16000 -e BUY_TIME=0.25 -e FRIENDLY_FIRE=1 -e ADMIN_STEAM=0:1:1234566 --name cs jpacora/cs1.6:latest +log
 ```
 
-#### Propriedades
+#### Propiedades
 
-| Nome | Descrição | Valor padrão |
-| --- | --- | --- |
-| `MAXPLAYERS` | O número máximo de jogadores | `32` |
-| `START_MAP` | O mapa inicial | `de_dust2` |
-| `SERVER_NAME` | O nome do servidor | `Servidor Counter-Strike 1.6` |
-| `START_MONEY` | O dinheiro inicial | `800` |
-| `BUY_TIME` | O tempo permitido para comprar itens em cada rodada (*minutos*) | `0,25` |
-| `FRIENDLY_FIRE` | Ative ou desative o fogo amigo. (*desligado: 0, ligado: 1*) | `1` |
-| `SERVER_PASSWORD` | A senha do servidor. (*Vazio para nenhuma senha do servidor*) | Nenhum |
-| `RCON_PASSWORD` | A senha rcon. (*Vazio para senha sem rcon*) | Nenhum |
-| `RESTART_ON_FAIL` | *A definir* | *A definir* |
-| `ADMIN_STEAM` | *A ser definido - relacionado ao mod amx*| *A definir* |
+| Nombre            | Descripción                                                                       | Valor predeterminado           |
+| ----------------- | --------------------------------------------------------------------------------- | ------------------------------ |
+| `MAXPLAYERS`      | Número máximo de jugadores                                                        | `32`                           |
+| `START_MAP`       | Mapa inicial                                                                      | `de_dust2`                     |
+| `SERVER_NAME`     | Nombre del servidor                                                               | `Servidor Counter-Strike 1.6`  |
+| `START_MONEY`     | Dinero inicial                                                                    | `800`                          |
+| `BUY_TIME`        | Tiempo para comprar objetos en cada ronda (*minutos*)                             | `0,25`                         |
+| `FRIENDLY_FIRE`   | Activar o desactivar fuego amigo (*desactivado: 0, activado: 1*)                  | `1`                            |
+| `SERVER_PASSWORD` | Contraseña del servidor (*Vacío si no tiene*)                                     | Ninguna                        |
+| `RCON_PASSWORD`   | Contraseña RCON (*Vacío si no tiene*)                                             | Ninguna                        |
+| `RESTART_ON_FAIL` | *Por definir*                                                                     | *Por definir*                  |
+| `ADMIN_STEAM`     | *Por definir - relacionado con el mod AMX*                                        | *Por definir*                  |
 
-## Pare o servidor
+## Detener el servidor
 
 ```bash
 docker stop cs
 ```
 
-## Iniciar servidor existente (parado)
+## Iniciar un servidor existente (detenido)
 
 ```bash
 docker start cs
 ```
 
-## Remova o servidor
+## Eliminar el servidor
 
 ```bash
 docker rm cs
 ```
 
-## Alterações do projeto original
+## Cambios respecto al proyecto original
 
-* Mudou o nome da compilação.
-* Adicionado novos mapas.
-* Adicionado novos parâmetros no script de execução.
+* Cambiado el nombre de la compilación.
+* Añadidos nuevos mapas.
+* Añadidos nuevos parámetros en el script de ejecución.
